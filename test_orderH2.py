@@ -1,0 +1,76 @@
+import pytest
+from appium.webdriver.common.appiumby import AppiumBy
+from selenium.common.exceptions import NoSuchElementException
+from time import sleep
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+from test_login import test_positive_login
+
+
+
+def test_positive_orderH2(driver):
+
+    test_positive_login(driver)
+
+     #scroll down kebawah sbntr ini belum nemu titik koordinat device nya :""""
+
+    try:
+        driver.find_element(AppiumBy.XPATH, "//android.widget.TextView[@text='BOOKING SERVIS']").click()
+    except NoSuchElementException:
+            print("Element 'Booking Servis' tidak muncul")
+
+    try:
+        driver.find_element(AppiumBy.XPATH, "//android.widget.TextView[@text='Pilih Lokasi Ahass']").click()
+    except NoSuchElementException:
+            print("element 'Pilih Lokasi Ahass' tidak muncul")
+
+    sleep(5)
+    try:
+        driver.find_element(AppiumBy.XPATH, "//android.widget.EditText[@text='Cari Lokasi Ahass']").click()
+        driver.find_element(AppiumBy.XPATH,
+            "(//android.widget.EditText[@text='Cari Lokasi Ahass'])[1]").send_keys("MANDIRI MOTOR")
+        sleep(3)
+        driver.find_element(AppiumBy.XPATH, "//android.widget.TextView[@text='MANDIRI MOTOR']").click()
+        driver.find_element(AppiumBy.XPATH, "//android.widget.TextView[@text='PILIH']").click()
+    except NoSuchElementException:
+            print(".....")
+
+    try:
+        driver.find_element(AppiumBy.XPATH, "//android.widget.TextView[@text='Pilih Hari/Tanggal']").click()
+    except NoSuchElementException:
+            print("element pilih tanggal servis tidak muncul")
+
+    
+    try:
+        driver.find_element(AppiumBy.ACCESSIBILITY_ID, "Next month").click()
+        driver.find_element(AppiumBy.XPATH,"//android.view.View[@text='19']").click()
+        driver.find_element(AppiumBy.XPATH,"//android.widget.Button[@text='OK']").click()
+        
+    except NoSuchElementException:
+            print("......")
+    
+    try:
+        driver.find_element(AppiumBy.XPATH,"//android.widget.TextView[@text='09:00']").click()
+        driver.find_element(AppiumBy.XPATH,"//android.widget.TextView[@text='LANJUT']").click()
+        
+    except NoSuchElementException:
+            print("......")
+    
+
+    try:
+          driver.find_element(AppiumBy.CLASS_NAME,"android.widget.EditText").send_keys("191919")
+          driver.find_element(AppiumBy.XPATH,"//android.widget.TextView[@text='Jenis Servis']")
+          driver.find_element(AppiumBy.XPATH,"//android.widget.TextView[@text='LANJUT']")
+          driver.find_element(AppiumBy.XPATH,"(//android.view.ViewGroup[@content-desc='setSubmitButton_id_vzoqaqif''])[1]/android.view.ViewGroup[1]/android.view.ViewGroup")
+          driver.find_element(AppiumBy.XPATH,"//android.widget.TextView[@text='LANJUT']")
+
+    except NoSuchElementException:
+            print("....")
+
+    #scroll down kebawah sbntr ini belum nemu titik koordinat device nya :""""
+
+    driver.find_element(AppiumBy.XPATH,"//android.widget.TextView[@text='LANJUT']")
+
+
+

@@ -1,0 +1,8 @@
+Login
+========
+1. Login with invalid Nomor Hp
+2. Login with invalid Email
+3. Login with Nomor Hp not registered
+4. Login with Email not registered
+5. Login with valid Email but Invalid Password
+6. Login with valid Nomor Hp but Invalid Password
