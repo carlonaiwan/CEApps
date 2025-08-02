@@ -1,3 +1,4 @@
 pytest
 Appium-Python-Client
-selenium
+allure-pytest
+pytest-xdist
